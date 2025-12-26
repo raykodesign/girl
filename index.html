@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shula - Neon Space</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div id="enter-screen">
+        <div class="enter-content">
+            <h1 class="intro-title">SHULA<span class="dot">.</span></h1>
+            <p class="intro-sub">Bienvenida a mi espacio</p>
+            <button id="enter-btn">
+                EXPLORAR <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <main id="main-layout" class="hidden-layout bento-container">
+        
+        <article class="bento-item hero-profile span-2">
+            <div class="profile-header">
+                <div class="img-wrapper neon-border">
+                    <img src="https://xatimg.com/image/tFbala0cf8sO.png" alt="Profile" class="pfp-bento">
+                </div>
+                <div class="identity-bento">
+                    <h1 class="bento-title">SHULA</h1>
+                    <span class="uid-badge">ID: 273031935</span>
+                </div>
+            </div>
+            <div class="bio-text">
+                <i class="fa-solid fa-quote-left highlight-icon"></i>
+                <p id="typing-text" class="neon-text"></p>
+            </div>
+             <button class="action-btn" onclick="openModal('modal-profile')">Ver Detalles Completos</button>
+        </article>
+
+        <article class="bento-item nav-block">
+            <h3 class="block-title">Menú</h3>
+            <div class="nav-grid">
+                <button class="nav-square" onclick="openModal('modal-gallery')">
+                    <i class="fa-solid fa-camera-retro"></i>
+                    <span>Galería</span>
+                </button>
+                 <button class="nav-square" onclick="openModal('modal-profile')">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Sobre Mí</span>
+                </button>
+            </div>
+        </article>
+
+        <article class="bento-item music-block" onclick="openModal('modal-music')">
+             <h3 class="block-title">Now Playing <i class="fa-solid fa-wave-square"></i></h3>
+             <div class="mini-player">
+                <div class="vinyl-mini spinning" id="vinyl-mini-anim"></div>
+                <div class="track-info-mini">
+                    <span id="mini-song-title">Ivonny Bonita</span>
+                    <small id="mini-song-artist">Karol G</small>
+                </div>
+             </div>
+             <p class="tap-hint">Click para abrir reproductor</p>
+        </article>
+
+        <article class="bento-item friends-block span-2-col-bottom" onclick="openModal('modal-friends')">
+             <div class="friends-header">
+                 <h3 class="block-title">Top Friends</h3>
+                 <span class="view-all">Ver todos <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+             </div>
+             <div class="avatar-stack">
+                <div class="stack-img" style="background-image: url('https://xatimg.com/image/IgoLKiYoP4US.jpg');"></div> <div class="stack-img" style="background-image: url('https://xatimg.com/image/zW5u9rAT5bGG.jpg');"></div>
+                <div class="stack-img" style="background-image: url('https://xatimg.com/image/PvR3iKQx9OaC.jpg');"></div>
+                <div class="stack-count">+4</div>
+             </div>
+        </article>
+
+    </main>
+
+    <div id="modal-profile" class="modal modal-neon">
+        <div class="modal-content bento-card">
+            <span class="close-btn" onclick="closeModal('modal-profile')"><i class="fa-solid fa-xmark"></i></span>
+            <h3 class="modal-title">PERFIL // DATA</h3>
+            <div class="profile-details-modern">
+                <div class="data-row">
+                    <span class="data-label">Frase:</span>
+                    <span class="data-value">"Brilla sin opacar a otras"</span>
+                </div>
+                <div class="tags-modern">
+                    <span class="neon-tag">🌮 Mexicana</span>
+                    <span class="neon-tag">♈ Aries</span>
+                    <span class="neon-tag">🎤 Karaoke</span>
+                    <span class="neon-tag">💃 Bailar</span>
+                </div>
+                <div class="data-grid">
+                    <div><strong>Find me:</strong> xat.com/Radiofantasia</div>
+                    <div><strong>Música:</strong> Salsa, Bachata y Banda</div>
+                    <div><strong>Comida:</strong> Mexicana e Italiana</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-gallery" class="modal modal-neon">
+        <div class="modal-content bento-card gallery-modal-size">
+            <span class="close-btn" onclick="closeModal('modal-gallery')"><i class="fa-solid fa-xmark"></i></span>
+            <h3 class="modal-title">GALERÍA // VISUALS</h3>
+            <div class="gallery-wrapper">
+                <div class="gallery-container-3d">
+                    <div class="photo-carousel-3d" id="carousel-3d-track"></div>
+                </div>
+                <button class="nav-arrow-neon prev-3d" onclick="moveGallery(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="nav-arrow-neon next-3d" onclick="moveGallery(1)"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-friends" class="modal modal-neon">
+        <div class="modal-content bento-card">
+            <span class="close-btn" onclick="closeModal('modal-friends')"><i class="fa-solid fa-xmark"></i></span>
+            <h3 class="modal-title">CONEXIONES // VIP</h3>
+             <div class="friend-grid-modern">
+                <div class="friend-card-neon"><div class="status-indicator online"></div> <div class="f-info"><span>Lovely</span> <small>5500000</small></div></div>
+                <div class="friend-card-neon"><div class="status-indicator online"></div> <div class="f-info"><span>Elvis</span> <small>1454394476</small></div></div>
+                <div class="friend-card-neon"><div class="status-indicator online"></div> <div class="f-info"><span>Épika</span> <small>777777</small></div></div>
+                <div class="friend-card-neon"><div class="status-indicator online"></div> <div class="f-info"><span>Sych</span> <small>60000009</small></div></div>
+                <div class="friend-card-neon"><div class="status-indicator online"></div> <div class="f-info"><span>Farruko</span> <small>323045404</small></div></div>
+                <div class="friend-card-neon"><div class="status-indicator online"></div> <div class="f-info"><span>DonTupa</span> <small>1527152725</small></div></div>
+                <div class="friend-card-neon"><div class="status-indicator online"></div> <div class="f-info"><span>Rayko</span> <small>46197719</small></div></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-music" class="modal modal-neon">
+        <div class="modal-content bento-card music-modal-layout">
+            <span class="close-btn" onclick="closeModal('modal-music')"><i class="fa-solid fa-xmark"></i></span>
+            <h3 class="modal-title">SYSTEM // AUDIO</h3>
+             <div class="music-player-modern">
+                <div class="vinyl-record-modern" id="vinyl">
+                    <img src="https://xatimg.com/image/tFbala0cf8sO.png" class="vinyl-cover-art" alt="cover">
+                </div>
+                <div class="song-info-modern">
+                    <h4 id="song-title">Select Track</h4>
+                    <p id="song-artist">...</p>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bg-neon"><div class="progress-fill-neon" id="progress-bar"></div></div>
+                </div>
+                <div class="controls-modern">
+                    <button onclick="prevSong()"><i class="fas fa-backward-step"></i></button>
+                    <button class="play-btn-neon" onclick="togglePlay()"><i class="fas fa-play" id="play-icon"></i></button>
+                    <button onclick="nextSong()"><i class="fas fa-forward-step"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="audio" loop></audio>
+    <script src="script.js"></script>
+</body>
+</html>
